@@ -11,8 +11,8 @@ class Observer(object):
 		self.name=name
 
 	# 當官者被提醒的時候
-	def notify(self,event):
-		print self.name+' observer is notified by Event: '+event
+	def notify(self,event,who):
+		print self.name+' observer is notified with Event: '+event+' by instance named is '+who
 
 # 目標物件：內涵所有觀察者的指標並統一管理。
 class Component(object):
@@ -25,9 +25,10 @@ class Component(object):
 
 	def trigger(self,event):
 		for i in self.observers:
-			i.notify(event)
+			i.notify(event,self.name)	# 由誰觸發
 
-	def __init__(self):
+	def __init__(self,name):
+		self.name=name
 		self.observers=[]
 
 # 建立觀察者
@@ -35,7 +36,7 @@ observerWindow=Observer('window')
 observerPanel=Observer('panel')
 
 # 建立一個元件然後增加他的觀察者
-componentA=Component()
+componentA=Component('button')
 
 # 新增觀察者
 componentA.addObserver(observerWindow)
@@ -45,5 +46,6 @@ componentA.addObserver(observerPanel)
 componentA.removeObserver(observerWindow)
 
 componentA.trigger('click')
+componentA.trigger('mouseover')
 
 
