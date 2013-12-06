@@ -45,6 +45,7 @@ componentA.addObserver(observerPanel)
 # 移除觀察者
 componentA.removeObserver(observerWindow)
 
+# 模擬觸發事件
 componentA.trigger('click')
 componentA.trigger('mouseover')
 
