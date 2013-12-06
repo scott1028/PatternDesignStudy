@@ -38,11 +38,11 @@ observerPanel=Observer('panel')
 # 建立一個元件然後增加他的觀察者
 componentA=Component('button')
 
-# 新增觀察者
+# 讓元件受到觀察者監看
 componentA.addObserver(observerWindow)
 componentA.addObserver(observerPanel)
 
-# 移除觀察者
+# 從元件內移除觀察者監看
 componentA.removeObserver(observerWindow)
 
 # 模擬觸發事件
