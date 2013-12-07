@@ -4,6 +4,7 @@
 # 	圆型（circle）和矩形（rectangle）它们都属于原型（Prototype）,
 # 	当客户需要画一个图形时便从画板中去一个图形，原型模式的关键就在于画板克隆一个图形对象，然后返回给客户。
 # 	如果你的 Class 建構函式有非常複雜的建構程序，建議可以使用 Prototype Pattern。
+#	感覺上類似繪圖軟體的設計
 
 import copy		# 用來實現 clone
 
