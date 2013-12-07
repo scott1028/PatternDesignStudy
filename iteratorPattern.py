@@ -49,7 +49,8 @@ class dataStore(list,abstractInterator):
 		if len(self)>0:self.currentIndex=0
 
 	def current(self):
-		return self[self.currentIndex]
+		if self.currentIndex==None:return None
+		else:return self[self.currentIndex]
 
 	def next(self):
 		try:
@@ -74,7 +75,7 @@ class dataStore(list,abstractInterator):
 		except:return None
 	
 
-a=dataStore(10,20,30)
+a=dataStore(10,20,30,50)
 
 print a.first()
 print a.last()
