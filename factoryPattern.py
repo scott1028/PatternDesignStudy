@@ -1,5 +1,5 @@
 # coding:utf-8
-# 工廠模式
+# 工廠模式, 抽象工廠模式
 # 通常是利用工廠類來建立其他生產類並該方法返回被生產類實例。
 # 實質是「定義一個建立物件的介面，但讓實作這個介面的類來決定例項化哪個類。工廠方法讓類的例項化推遲到子類別中進行。」
 # 實際應用條件在於：讓工廠把問題統合，把主要的流程控制都寫在工廠內，例如作業系統就是一個工廠，我們要開啟應用程式都是透過作業系統去呼叫( 基本上你也沒辦法寫語言開啟程式XD )
@@ -19,7 +19,7 @@ class buttonFactory(object):
 		return winButton()
 
 	def buildOSXButton(self):
-		return macButton()
+		return osxButton()
 
 # 建立工廠
 myFactory=buttonFactory()
@@ -32,14 +32,14 @@ myBytton2=myFactory.buildOSXButton()
 
 class abstractorFactory(object):
 	def buildButton(self):
-		raise raise NotImplementedError("You must override this abstract method!")
+		raise NotImplementedError("You must override this abstract method!")
 
 class buttonFactoryForWin(abstractorFactory):
 	def buildButton(self):
 		return winButton()
 
 class buttonFactoryForOSX(abstractorFactory):
-	def buttonButton(self):
+	def buildButton(self):
 		return osxButton()
 
 winFactory=buttonFactoryForWin()
