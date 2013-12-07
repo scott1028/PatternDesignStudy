@@ -34,7 +34,7 @@ class human(object):
 
 	# 實作被訪問的時候的行為
 	def accept(self,aVisitor):
-		aVisitor.visitHuman(self.body)
+		aVisitor.visitHuman(self.body) 		# 你必須決定訪問者掉用何種方法
 		for i in self.foots:aVisitor.visitHuman(i)
 		for i in self.hands:aVisitor.visitHuman(i)
 
