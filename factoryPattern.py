@@ -9,16 +9,16 @@ class winButton(object):
 	def __init__(self):
 		print 'winButton created!'
 
-class macButton(object):
+class osxButton(object):
 	def __init__(self):
-		print 'macButton created!'
+		print 'osxButton created!'
 
 # 工廠
 class buttonFactory(object):
 	def buildWinButton(self):
 		return winButton()
 
-	def buildMacButton(self):
+	def buildOSXButton(self):
 		return macButton()
 
 # 建立工廠
@@ -26,4 +26,24 @@ myFactory=buttonFactory()
 
 # 生產零件
 myButton1=myFactory.buildWinButton()
-myBytton2=myFactory.buildMacButton()
+myBytton2=myFactory.buildOSXButton()
+
+##################################################################### 以下再修改為為抽象工廠模式, 把工廠類在抽象一層介面出來 #####################################################################
+
+class abstractorFactory(object):
+	def buildButton(self):
+		raise raise NotImplementedError("You must override this abstract method!")
+
+class buttonFactoryForWin(abstractorFactory):
+	def buildButton(self):
+		return winButton()
+
+class buttonFactoryForOSX(abstractorFactory):
+	def buttonButton(self):
+		return osxButton()
+
+winFactory=buttonFactoryForWin()
+winFactory.buildButton()
+
+osxFactory=buttonFactoryForOSX()
+osxFactory.buildButton()
